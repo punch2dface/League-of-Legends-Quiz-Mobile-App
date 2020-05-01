@@ -8,44 +8,46 @@
     android:padding="16dp"
     tools:context=".MainMenuActivity">
 
-    <ImageView
-        android:id="@+id/menuLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="260dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/logo"
-        android:padding="16dp"/>
-
-    <ImageView
-        android:id="@+id/menuTierIV"
+    <TextView
+        android:id="@+id/resultScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/menuLogo"
+        android:text="x/y\nCorrect"
+        android:textAlignment="center"
+        android:textColor="#cdbe91"
+        android:textSize="40sp"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/defaulttier" />
+        android:layout_marginTop="50dp"/>
+
+    <ImageView
+        android:id="@+id/resultRank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/resultScore"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
 
     <TextView
-        android:id="@+id/menuTierTV"
+        android:id="@+id/resultTierTV"
+        android:text="Platinum Tier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/menuTierIV"
-        android:text="Not Ranked"
-        android:textSize="15dp"
         android:textColor="#cdbe91"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"/>
+        android:textSize="20sp"
+        android:layout_below="@id/resultRank"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
 
     <Button
-        android:id="@+id/menuTakeQuizBtn"
+        android:id="@+id/exitBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/menuTierTV"
-        android:layout_centerHorizontal="true"
         android:background="@drawable/buttonbackground"
-        android:text="@string/take_quiz"
+        android:text="Exit"
         android:textColor="#cdbe91"
-        android:textSize="15sp"/>
-
+        android:layout_below="@id/resultTierTV"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"/>
 
 </RelativeLayout>

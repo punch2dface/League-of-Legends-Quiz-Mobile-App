@@ -7,26 +7,53 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainMenuActivity extends AppCompatActivity {
 
-    private static final int REQUEST_CODE_QUIZ = 1;
 
-    public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String KEY_HIGHSCORE = "keyHighScore";
 
-    private TextView tvHighScore;
+    private ImageView tierIV;
+    private TextView tierTV;
 
-    private int highscore;
+    private String rankScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        tvHighScore = findViewById(R.id.highscoreTV);
-        loadHighScore();
+        tierIV = findViewById(R.id.menuTierIV);
+        tierTV = findViewById(R.id.menuTierTV);
+
+        Intent resIntent = getIntent();
+
+        /**
+         * get rank result
+         */
+        if(resIntent.hasExtra("resultRankTier")) {
+            tierTV.setText(resIntent.getStringExtra("resultRankTier"));
+            if(resIntent.getStringExtra("resultRankTier").equals("Iron Tier")) {
+                tierIV.setBackgroundResource(R.drawable.iron);
+            } else if (resIntent.getStringExtra("resultRankTier").equals("Bronze Tier")) {
+                tierIV.setBackgroundResource(R.drawable.bronze);
+            } else if (resIntent.getStringExtra("resultRankTier").equals("Silver Tier")) {
+                tierIV.setBackgroundResource(R.drawable.silver);
+            } else if (resIntent.getStringExtra("resultRankTier").equals("Gold Tier")) {
+                tierIV.setBackgroundResource(R.drawable.gold);
+            } else if (resIntent.getStringExtra("resultRankTier").equals("Platinum Tier")) {
+                tierIV.setBackgroundResource(R.drawable.platinum);
+            } else if (resIntent.getStringExtra("resultRankTier").equals("Diamond Tier")) {
+                tierIV.setBackgroundResource(R.drawable.diamond);
+            } else if (resIntent.getStringExtra("resultRankTier").equals("Master Tier")) {
+                tierIV.setBackgroundResource(R.drawable.master);
+            } else if (resIntent.getStringExtra("resultRankTier").equals("Grand Master Tier")) {
+                tierIV.setBackgroundResource(R.drawable.grandmaster);
+            } else if (resIntent.getStringExtra("resultRankTier").equals("Challenger Tier")) {
+                tierIV.setBackgroundResource(R.drawable.challenger);
+            }
+        }
 
         Button buttonStartQuiz = findViewById(R.id.menuTakeQuizBtn);
         buttonStartQuiz.setOnClickListener(new View.OnClickListener(){
@@ -37,38 +64,8 @@ public class MainMenuActivity extends AppCompatActivity {
         });
     }
 
-    private void startQuiz(){
+    private void startQuiz() {
         Intent intent = new Intent(MainMenuActivity.this, QuizActivity.class);
-        startActivityForResult(intent, REQUEST_CODE_QUIZ);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == REQUEST_CODE_QUIZ) {
-            if (resultCode == RESULT_OK) {
-                int score = data.getIntExtra(QuizActivity.EXTRA_SCORE, 0);
-                if (score > highscore) {
-                    updateHighScore(score);
-                }
-            }
-        }
-    }
-
-    private void loadHighScore() {
-        SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        highscore = prefs.getInt(KEY_HIGHSCORE, 0);
-        tvHighScore.setText("Highscore: " + highscore);
-    }
-
-    private void updateHighScore(int highscoreNew) {
-        highscore = highscoreNew;
-        tvHighScore.setText("Highscore: " + highscore);
-
-        SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt(KEY_HIGHSCORE, highscore);
-        editor.apply();
+        startActivity(intent);
     }
 }

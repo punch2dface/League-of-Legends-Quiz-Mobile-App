@@ -14,7 +14,7 @@ import java.util.List;
 public class QuizDBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "LeagueOfLegendsQuiz.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 4;
 
     private SQLiteDatabase db;
 
@@ -46,16 +46,66 @@ public class QuizDBHelper extends SQLiteOpenHelper {
     }
 
     private void fillQuestionsTable() {
-        Question q1 = new Question("A is correct", "A", "B", "C", 1);
+        Question q1 = new Question("What's the continent where the League of Legends resides called?", "Valoran", "Pandaria", "Northrend", 1);
         addQuestion(q1);
-        Question q2 = new Question("B is correct", "A", "B", "C", 2);
+        Question q2 = new Question("Who bears the title of \"The Thunder's Roar\"?", "Kennen", "Volibear", "Rengar", 2);
         addQuestion(q2);
-        Question q3 = new Question("C is correct", "A", "B", "C", 3);
+        Question q3 = new Question("Where did Ziggs first used his all famous Hexplosives?", "Lab invasion in Piltover", "Noxus Raid", "Prison Break in Zaun", 3);
         addQuestion(q3);
-        Question q4 = new Question("A is correct", "A", "B", "C", 1);
+        Question q4 = new Question("Who is Kayle's Sister?", "Morgana", "Katarina", "Casseopeia", 1);
         addQuestion(q4);
-        Question q5 = new Question("B is correct", "A", "B", "C", 2);
+        Question q5 = new Question("Who is the champion Tryndamere married to in \"League of Legends?\"", "Ashe", "Lux", "Kayle", 1);
         addQuestion(q5);
+        Question q6 = new Question("What keeps Gragas' drink always at the perfect serving temperature?", "A Freljordian chilling spell", "An iceball from Nunu", "A never melting shard of ice", 3);
+        addQuestion(q6);
+        Question q7 = new Question("What is the college academy in Zaun called?", "Zaun's School of Robotics and Machinery", "Zaun's College of Techmaturgy", "Zaun's School of Machinery and Robotics", 2);
+        addQuestion(q7);
+        Question q8 = new Question("What does the name Zac stand for?", "Zaun Anthropomorphic Combatant", "Zaun Amphibolic Contender", "Zaun Amorphous Combatant", 3);
+        addQuestion(q8);
+        Question q9 = new Question("Which faction is Kindred from?", "Shadow Isles", "Demacia", "None of the above", 3);
+        addQuestion(q9);
+        Question q10 = new Question("Who is related to Katarina?", "Casseopeia", "Caitlyn", "Kayle", 1);
+        addQuestion(q10);
+        Question q11 = new Question("According to the Journal of Justice, police speculated that Kassadin's daughter was kidnapped by which champion?", "Miss Fortune", "Malzahar", "Cho Gath", 2);
+        addQuestion(q11);
+        Question q12 = new Question("Who was the war commander during Noxus' invasion at Ionia?", "Talon", "Darius", "Riven", 3);
+        addQuestion(q12);
+        Question q13 = new Question("What did Fizz do to make the people of Bilgewater accept him?", "Saved the city from the beast.", "Saved the city from Noxus.", "Killed a wanted pirate.", 1);
+        addQuestion(q13);
+        Question q14 = new Question("What was the magic that Ryze learned called??", "Dark Magic", "Thorn Magic", "Rune Magic", 2);
+        addQuestion(q14);
+        Question q15 = new Question("Who has a crush on Vayne?", "Jayce", "Garen", "Dr.Mundo", 3);
+        addQuestion(q15);
+        Question q16 = new Question("Which tribe do the \"League of Legends\" champions Anivia, Braum, Gragas, Nunu and Tryndamere belong to?", "Avarosan", "Frostgaurd", "Winter’s Claw", 1);
+        addQuestion(q16);
+        Question q17 = new Question("Who joins Serylda and Avarosa as the third sister in the \"League of Legends\" Three Sisters triad?", "Ashe", "Lissandra", "Sejuani", 2);
+        addQuestion(q17);
+        Question q18 = new Question("Which \"League of Legends\" character leads the Winter's Claw tribe?", "Ashe", "Lissandra", "Sejuani", 3);
+        addQuestion(q18);
+        Question q19 = new Question("In \"League of Legends\" Cassiopeia is half woman and half what creature?", "Snake", "Lion", "Horse", 1);
+        addQuestion(q19);
+        Question q20 = new Question("What was the \"League of Legends\" character Zyra before transferring herself into human form?", "Ancient Snake", "Ancient Plant", "Ancient Owl", 2);
+        addQuestion(q20);
+        Question q21 = new Question("Which \"League of Legends\" character is known as the Unforgiven?", "Riven", "Akali", "Yassuo", 3);
+        addQuestion(q21);
+        Question q22 = new Question("Which \"League of Legends\" champion was born in the Voodoo Lands?", "Annie", "Malzahar", "Ivern", 1);
+        addQuestion(q22);
+        Question q23 = new Question("What is Garen's last name?", "Lanceguard", "Crownguard", "Vanguard", 2);
+        addQuestion(q23);
+        Question q24 = new Question("Who says \"We'll bring them pain.\"", "Brand", "Evelynn", "Morgana", 3);
+        addQuestion(q24);
+        Question q25 = new Question("Who says \"The cycle of life and death continues. We will live, they will die.\"", "Nasus", "Karthus", "Irelia", 1);
+        addQuestion(q25);
+        Question q26 = new Question("Who says \"Don't you trust me?\"", "Zyra", "Ahri", "Annie", 2);
+        addQuestion(q26);
+        Question q27 = new Question("Who says \"The balance of power must be preserved.\"", "Darius", "Riven", "Kassadin", 3);
+        addQuestion(q27);
+        Question q28 = new Question("What is Gragas' special drink called?", "Graggy Ice", "Graggy Booze", "Magic Grog", 1);
+        addQuestion(q28);
+        Question q29 = new Question("Which champion is the owner of a Sunscreen brand? ", "Singed", "Taric", "Ezreal", 2);
+        addQuestion(q29);
+        Question q30 = new Question("What is Demacia's special force that is in charge of protecting the monarchs called?", "The Defender of Justice", "The Valorants", "The Daunting Vanguard", 3);
+        addQuestion(q30);
     }
 
     private void addQuestion(Question question){

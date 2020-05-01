@@ -8,20 +8,13 @@
     android:padding="16dp"
     tools:context=".MainMenuActivity">
 
-    <TextView
-        android:id="@+id/textViewScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Score: 0"
-        android:textColor="#cdbe91"/>
 
     <TextView
         android:id="@+id/textViewQuestionCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Question: 1/x"
-        android:textColor="#cdbe91"
-        android:layout_below="@id/textViewScore"/>
+        android:textColor="#cdbe91"/>
 
     <TextView
         android:id="@+id/textViewCountDown"

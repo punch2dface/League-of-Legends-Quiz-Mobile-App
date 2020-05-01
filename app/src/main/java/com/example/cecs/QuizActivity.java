@@ -23,7 +23,6 @@ public class QuizActivity extends AppCompatActivity {
     private static final long COUNTDOWN_IN_MILLIS = 30000;
 
     private TextView tvQuestion;
-    private TextView tvScore;
     private TextView tvQuestionCount;
     private TextView tvCountDown;
     private RadioGroup rbGroup;
@@ -54,7 +53,6 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
 
         tvQuestion = findViewById(R.id.textViewQuestion);
-        tvScore = findViewById(R.id.textViewScore);
         tvQuestionCount = findViewById(R.id.textViewQuestionCount);
         tvCountDown = findViewById(R.id.textViewCountDown);
         rbGroup = findViewById(R.id.radioGroup);
@@ -157,7 +155,6 @@ public class QuizActivity extends AppCompatActivity {
 
         if(answerNumber == currentQuestion.getAnswerNumber()) {
             score++;
-            tvScore.setText("Score: " + score);
         }
 
         showSolution();
@@ -171,15 +168,12 @@ public class QuizActivity extends AppCompatActivity {
         switch (currentQuestion.getAnswerNumber()) {
             case 1:
                 rb1.setTextColor(Color.GREEN);
-                tvQuestion.setText("Answer 1 is correct");
                 break;
             case 2:
                 rb2.setTextColor(Color.GREEN);
-                tvQuestion.setText("Answer 2 is correct");
                 break;
             case 3:
-                rb1.setTextColor(Color.GREEN);
-                tvQuestion.setText("Answer 3 is correct");
+                rb3.setTextColor(Color.GREEN);
                 break;
         }
 
@@ -191,10 +185,11 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void finishQuiz() {
-        Intent resultIntent = new Intent();
+        Intent resultIntent = new Intent(QuizActivity.this, ResultActivity.class);
         resultIntent.putExtra(EXTRA_SCORE, score);
-        setResult(RESULT_OK);
-        finish();
+        resultIntent.putExtra("totalQuestion", questionCountTotal);
+        setResult(RESULT_OK, resultIntent);
+        startActivity(resultIntent);
     }
 
     @Override
