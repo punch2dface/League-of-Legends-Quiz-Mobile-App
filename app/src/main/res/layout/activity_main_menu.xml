@@ -13,8 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="260dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/logo"
-        android:padding="16dp"/>
+        android:padding="16dp"
+        android:src="@drawable/logo" />
 
     <ImageView
         android:id="@+id/menuTierIV"
@@ -28,24 +28,26 @@
         android:id="@+id/menuTierTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/menuTierIV"
-        android:text="Not Ranked"
-        android:textSize="15dp"
-        android:textColor="#cdbe91"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginBottom="30dp"
+        android:text="Not Ranked"
+        android:textColor="#cdbe91"
+        android:textSize="15dp" />
 
     <Button
         android:id="@+id/menuTakeQuizBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/menuTierTV"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="144dp"
         android:background="@drawable/buttonbackground"
         android:text="@string/take_quiz"
         android:textColor="#cdbe91"
-        android:textSize="15sp"/>
+        android:textSize="15sp" />
 
 
 </RelativeLayout>

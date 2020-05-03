@@ -1,11 +1,6 @@
 package com.example.cecs;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,9 +8,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import java.io.ByteArrayOutputStream;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ResultActivity extends AppCompatActivity {
 
@@ -105,7 +98,7 @@ public class ResultActivity extends AppCompatActivity {
 
                 String tier = resultTierTV.getText().toString();
                 Log.e(TAG, "Tier String: " + tier);
-                Intent resIntent = new Intent(ResultActivity.this, MainMenuActivity.class);
+                Intent resIntent = new Intent(ResultActivity.this, activity_screen_slide.class);
                 resIntent.putExtra("resultRankTier", tier);
                 startActivity(resIntent);
             }

@@ -1,16 +1,17 @@
 package com.example.cecs;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainMenuActivity extends AppCompatActivity {
+import androidx.fragment.app.Fragment;
+
+public class MainMenuActivity extends Fragment {
 
 
 
@@ -20,14 +21,22 @@ public class MainMenuActivity extends AppCompatActivity {
     private String rankScore;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_menu);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        ViewGroup rootView = (ViewGroup) inflater.inflate(
+                R.layout.activity_main_menu, container, false);
 
-        tierIV = findViewById(R.id.menuTierIV);
-        tierTV = findViewById(R.id.menuTierTV);
+        return rootView;
+    }
 
-        Intent resIntent = getIntent();
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        tierIV = getView().findViewById(R.id.menuTierIV);
+        tierTV = getView().findViewById(R.id.menuTierTV);
+
+        Intent resIntent = getActivity().getIntent();
 
         /**
          * get rank result
@@ -55,7 +64,7 @@ public class MainMenuActivity extends AppCompatActivity {
             }
         }
 
-        Button buttonStartQuiz = findViewById(R.id.menuTakeQuizBtn);
+        Button buttonStartQuiz = getView().findViewById(R.id.menuTakeQuizBtn);
         buttonStartQuiz.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -65,7 +74,7 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     private void startQuiz() {
-        Intent intent = new Intent(MainMenuActivity.this, QuizActivity.class);
+        Intent intent = new Intent(getActivity(), QuizActivity.class);
         startActivity(intent);
     }
 }
