@@ -1,14 +1,14 @@
 package com.example.cecs;
 
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.HashMap;
 
@@ -57,7 +57,7 @@ public class HomeActivity extends AppCompatActivity {
                 // validate username and password
                 if (true /*validateLogin(username, password)*/) {
                     // make new intent with this activity to homepage activity
-                    Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), activity_screen_slide.class);
                     // put username into Intent with a name "username"
                     intent.putExtra("username", username);
                     // start activity
