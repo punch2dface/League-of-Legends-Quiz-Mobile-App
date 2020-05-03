@@ -26,6 +26,7 @@ public class MainMenuActivity extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.activity_main_menu, container, false);
 
+
         return rootView;
     }
 
