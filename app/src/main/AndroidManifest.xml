@@ -9,7 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SettingsActivity"></activity>
+        <activity
+            android:name=".ChangeProfileActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".ChangePasswordActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".HelpActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"  />
+        <activity
+            android:name=".AboutActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"  />
+        <activity
+            android:name=".SettingsActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activity_screen_slide"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
