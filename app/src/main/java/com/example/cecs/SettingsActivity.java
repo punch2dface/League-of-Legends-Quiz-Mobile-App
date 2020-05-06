@@ -2,7 +2,6 @@ package com.example.cecs;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,19 +10,12 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import java.util.HashMap;
-
 public class SettingsActivity extends Fragment {
     Button logoutBtn;
     Button aboutBtn;
     Button helpBtn;
     Button changePasswordBtn;
     Button changeProfileBtn;
-    private UserDataDictionary userDict = new UserDataDictionary();
-    private HashMap<String, User> userData = userDict.getUserDict();
-    private String TAG = SettingsActivity.class.getSimpleName();
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,17 +33,21 @@ public class SettingsActivity extends Fragment {
         aboutBtn = getView().findViewById(R.id.aboutButton);
         helpBtn = getView().findViewById(R.id.helpButton);
         changePasswordBtn = getView().findViewById(R.id.changePasswordButton);
-
-        Intent accountIntent = getActivity().getIntent();
-        String userName = accountIntent.getStringExtra("username");
-        Log.e(TAG, "Username that is logged in: " + userName);
-        Log.e(TAG, "Username Exists: " + userData.containsKey(userName));
+        changeProfileBtn = getView().findViewById(R.id.changeProfileButton);
 
         changePasswordBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent changePasswordIntent = new Intent(getContext(), ChangePasswordActivity.class);
                 startActivity(changePasswordIntent);
+            }
+        });
+
+        changeProfileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent changeProfileIntent = new Intent(getContext(), ChangeProfileActivity.class);
+                startActivity(changeProfileIntent);
             }
         });
 
