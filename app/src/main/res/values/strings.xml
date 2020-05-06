@@ -14,4 +14,5 @@
     <string name="option">Option</string>
     <string name="logout">Logout</string>
     <string name="highscore">Highscore: 0</string>
+    <string name="newPassword">Type New Password</string>
 </resources>
