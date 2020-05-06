@@ -15,4 +15,5 @@ public class AboutActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
     }
+    //
 }
