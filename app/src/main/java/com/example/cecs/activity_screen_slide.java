@@ -2,7 +2,12 @@ package com.example.cecs;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -30,17 +35,49 @@ public class activity_screen_slide extends FragmentActivity {
      */
     private PagerAdapter pagerAdapter;
 
+    /**
+     * Create dots that indicate which page view is on
+     */
+    private LinearLayout dotLayout;
+    private TextView[] dots;
+
+    private Button backButton;
+    private Button nextButton;
+
+    private int currentPage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_slide);
 
+        dotLayout = findViewById(R.id.dotsLayout);
+        nextButton = findViewById(R.id.nextButton);
+        backButton = findViewById(R.id.prevButton);
+
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.pager);
-        //mPager.setBackgroundColor(Color.parseColor("#f56c42"));
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(pagerAdapter);
-        //mPager.setPageTransformer(true, new ZoomOutPageTransformer());
+
+        //initiate dots
+        addDotsIndicator(0);
+        mPager.addOnPageChangeListener((viewListener));
+
+        //buttons change page
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPager.setCurrentItem(currentPage + 1);
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPager.setCurrentItem(currentPage - 1);
+            }
+        });
     }
 
     @Override
@@ -54,6 +91,60 @@ public class activity_screen_slide extends FragmentActivity {
             mPager.setCurrentItem(mPager.getCurrentItem() - 1);
         }
     }
+    public void addDotsIndicator(int position){
+        dots = new TextView[NUM_PAGES];
+        dotLayout.removeAllViews();;
+        for(int i = 0; i < dots.length; i++){
+            dots[i] = new TextView((this));
+            dots[i].setText(Html.fromHtml("&#8226"));
+            dots[i].setTextSize(35);
+            dots[i].setTextColor(getResources().getColor(R.color.transparentWhite));
+            dotLayout.addView(dots[i]);
+        }
+        if(dots.length > 0){
+            dots[position].setTextColor(android.graphics.Color.WHITE);
+        }
+    }
+
+
+    ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener(){
+
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+            addDotsIndicator(position);
+            currentPage = position;
+
+            if(currentPage == 0){
+                nextButton.setEnabled(true);
+                backButton.setEnabled(false);
+                backButton.setVisibility(View.INVISIBLE);
+                nextButton.setVisibility(View.VISIBLE);
+
+            }
+            else if(currentPage == dots.length - 1){
+                nextButton.setEnabled(false);
+                backButton.setEnabled(true);
+                backButton.setVisibility(View.VISIBLE);
+                nextButton.setVisibility(View.INVISIBLE);
+            }
+            else{
+                nextButton.setEnabled(true);
+                backButton.setEnabled(true);
+                backButton.setVisibility(View.VISIBLE);
+                nextButton.setVisibility(View.VISIBLE);
+            }
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+
+        }
+    };
 
     /**
      * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
@@ -85,39 +176,7 @@ public class activity_screen_slide extends FragmentActivity {
         public int getCount() {
             return NUM_PAGES;
         }
-        /*
-        @Override
-        public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-            return view == (RelativeLayout) object;
-        }
 
-         */
-
-        /*
-        @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            View view;
-            layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-            if(position == 0) {
-                //view = layoutInflater.inflate(R.layout.activity_main_menu, container, false);
-                view = layoutInflater.inflate(R.layout.activity_settings, container, false);
-
-            }
-            else {
-                view = layoutInflater.inflate(R.layout.activity_settings, container, false);
-            }
-
-            container.addView(view);
-            return view;
-        }
-
-
-
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object){
-            container.removeView((RelativeLayout)object);
-        }
-        */
     }
 
 

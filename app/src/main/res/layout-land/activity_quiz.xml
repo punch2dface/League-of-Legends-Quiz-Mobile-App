@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainMenuActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/textViewQuestionCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:text="Question: 1/x"
+                android:textColor="#cdbe91"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textViewCountDown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:text="00:00"
+                android:textColor="#cdbe91"
+                android:textSize="40sp"
+                android:layout_alignParentEnd="true"/>
+
+            <TextView
+                android:id="@+id/textViewQuestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textViewCountDown"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="30dp"
+                android:text="HERE WILL BE THE QUESTION\nHERE WILL BE THE QUESTION\nHERE WILL BE THE QUESTION"
+                android:textAlignment="center"
+                android:textColor="#cdbe91"
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_below="@id/textViewQuestion"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/radioButton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Option 1 Option 1 Option 1 Option 1 Option 1 "
+                    android:textSize="20sp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#cdbe91"
+                    android:buttonTint="#cdbe91"/>
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Option 2"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20sp"
+                    android:textColor="#cdbe91"
+                    android:buttonTint="#cdbe91"/>
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Option 3"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20sp"
+                    android:textColor="#cdbe91"
+                    android:buttonTint="#cdbe91"/>
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/confirmBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/radioGroup"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="Confirm"
+                android:textColor="#cdbe91"
+                android:textSize="20sp"
+                android:background="@drawable/buttonbackground"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+</LinearLayout>

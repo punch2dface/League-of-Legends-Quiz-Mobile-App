@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:padding="16dp"
+    tools:context=".MainMenuActivity"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/menuLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="179dp"
+                android:layout_centerHorizontal="true"
+                android:padding="16dp"
+                android:src="@drawable/logo"
+                android:layout_gravity="center"/>
+
+            <ImageView
+                android:id="@+id/menuTierIV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/menuLogo"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/defaulttier"/>
+
+            <TextView
+                android:id="@+id/menuTierTV"
+                android:layout_width="150dp"
+                android:textAlignment="center"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/menuLogo"
+                android:layout_marginLeft="125dp"
+                android:layout_marginTop="125dp"
+                android:layout_marginBottom="30dp"
+                android:layout_toRightOf="@id/menuTierIV"
+                android:text="Not Ranked"
+                android:textColor="#cdbe91"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/menuTakeQuizBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/menuTierTV"
+                android:layout_toRightOf="@id/menuTierIV"
+                android:layout_alignRight="@id/menuTierTV"
+                android:layout_alignLeft="@id/menuTierTV"
+                android:background="@drawable/buttonbackground"
+                android:text="@string/take_quiz"
+                android:textColor="#cdbe91"
+                android:textSize="15sp"/>
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>
