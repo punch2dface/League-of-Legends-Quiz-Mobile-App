@@ -39,6 +39,11 @@ public class HomeActivity extends AppCompatActivity {
         btnSignUp = findViewById(R.id.homeCreateAccountBtn);
         btnLogin = findViewById(R.id.homeLoginBtn);
 
+
+        /**
+         * set text to blank
+         */
+
         /**
          *  btnLogin onClickListener for the Login Button.
          */

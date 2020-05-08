@@ -164,6 +164,7 @@ public class activity_screen_slide extends FragmentActivity {
             Fragment fr;
             if(position == 0) {
                 fr =  new MainMenuActivity();
+                //Get Intent?
             }
             else {
                 fr =  new SettingsActivity();
