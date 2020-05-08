@@ -10,8 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ChangeProfileActivity"
+            android:name=".activity_screen_slide"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".ChangeProfileActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"  />
         <activity
             android:name=".ChangePasswordActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
@@ -23,10 +26,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar"  />
         <activity
             android:name=".SettingsActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".activity_screen_slide"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.NoActionBar"  />
         <activity
             android:name=".ResultActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
@@ -35,7 +35,8 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".MainMenuActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/AppTheme.ActionBar.Transparent"
+            android:label=""/>
         <activity
             android:name=".SignUpActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
