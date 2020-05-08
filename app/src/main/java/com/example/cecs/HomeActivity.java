@@ -3,6 +3,7 @@ package com.example.cecs;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +17,7 @@ import java.util.HashMap;
  * This activity represents a login
  */
 public class HomeActivity extends AppCompatActivity {
-
+    private String TAG = HomeActivity.class.getSimpleName();
     Button btnLogin, btnSignUp;
     EditText etUsername, etPassword;
     private UserDataDictionary userDict = new UserDataDictionary();
@@ -55,11 +56,20 @@ public class HomeActivity extends AppCompatActivity {
                 String password = etPassword.getText().toString();
 
                 // validate username and password
-                if (true /*validateLogin(username, password)*/) {
+                if (/*validateLogin(username, password)*/ true) {
                     // make new intent with this activity to homepage activity
+                    if(userData.containsKey(username)){
+                        Log.e(TAG, "Username gotten: " + userData.get(username).username);
+                        Log.e(TAG, "Password gotten: " + userData.get(username).password);
+                        Log.e(TAG, "email gotten: " + userData.get(username).email);
+                        Log.e(TAG, "phonenumber gotten: " + userData.get(username).phoneNumber);
+                        Log.e(TAG, "Account: " + userData.get(username));
+                    }
+
                     Intent intent = new Intent(getApplicationContext(), activity_screen_slide.class);
                     // put username into Intent with a name "username"
                     intent.putExtra("username", username);
+                    //intent.putExtra("account", userData.get(username));
                     // start activity
                     startActivity(intent);
                 }
