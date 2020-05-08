@@ -8,6 +8,14 @@
     android:padding="16dp"
     tools:context=".MainMenuActivity">
 
+    <ImageView
+        android:id="@+id/resultRank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/challenger"/>
+
     <TextView
         android:id="@+id/resultScore"
         android:layout_width="wrap_content"
@@ -16,17 +24,9 @@
         android:textAlignment="center"
         android:textColor="#cdbe91"
         android:textSize="40sp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"/>
-
-    <ImageView
-        android:id="@+id/resultRank"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/resultScore"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/challenger"/>
+        android:layout_toRightOf="@id/resultRank"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="140dp"/>
 
     <TextView
         android:id="@+id/resultTierTV"
@@ -35,9 +35,13 @@
         android:layout_height="wrap_content"
         android:textColor="#cdbe91"
         android:textSize="20sp"
-        android:layout_below="@id/resultRank"
+        android:layout_below="@id/resultScore"
+        android:layout_toRightOf="@id/resultRank"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        android:textAlignment="center"
+        android:layout_alignRight="@+id/resultScore"
+        android:layout_alignLeft="@id/resultScore"
+        android:layout_marginTop="50dp"/>
 
     <Button
         android:id="@+id/exitBtn"
@@ -47,8 +51,10 @@
         android:text="Exit"
         android:textColor="#cdbe91"
         android:layout_below="@id/resultTierTV"
+        android:layout_toRightOf="@id/resultRank"
+        android:layout_alignLeft="@id/resultTierTV"
+        android:layout_alignRight="@id/resultTierTV"
         android:textSize="20sp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"/>
-
+        android:layout_marginTop="50dp"/>
 </RelativeLayout>

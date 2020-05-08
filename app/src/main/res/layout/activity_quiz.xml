@@ -14,7 +14,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Question: 1/x"
-        android:textColor="#cdbe91"/>
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#cdbe91"
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/textViewCountDown"
@@ -23,12 +26,15 @@
         android:textSize="40sp"
         android:textColor="#cdbe91"
         android:text="00:00"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
         android:layout_alignParentEnd="true"/>
 
     <TextView
         android:id="@+id/textViewQuestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:text="HERE WILL BE THE QUESTION\nHERE WILL BE THE QUESTION\nHERE WILL BE THE QUESTION"
         android:textSize="20sp"
         android:textColor="#cdbe91"
@@ -40,7 +46,8 @@
         android:id="@+id/radioGroup"
         android:layout_centerVertical="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp">
         <RadioButton
             android:id="@+id/radioButton1"
             android:layout_width="wrap_content"
@@ -75,13 +82,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/radioGroup"
-        android:layout_marginTop="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="220dp"
+        android:background="@drawable/buttonbackground"
         android:text="Confirm"
         android:textColor="#cdbe91"
-        android:textSize="20sp"
-        android:background="@drawable/buttonbackground"/>
-
-
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:textSize="20sp" />
 
 
 </RelativeLayout>
