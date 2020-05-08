@@ -14,76 +14,62 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/passwordButton"
+                android:layout_width="198dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="107dp"
+                android:layout_marginTop="113dp"
+                android:layout_marginEnd="107dp"
+                android:background="@drawable/buttonbackground"
+                android:text="CHANGE PASSWORD"
+                android:textColor="#cdbe91" />
+
+            <Button
+                android:id="@+id/idButton"
+                android:layout_width="198dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="107dp"
+                android:layout_marginTop="38dp"
+                android:layout_marginEnd="107dp"
+                android:background="@drawable/buttonbackground"
+                android:text="CHANGE PROFILE"
+                android:textColor="#cdbe91" />
+
+            <Button
+                android:id="@+id/aboutButton"
+                android:layout_width="198dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="107dp"
+                android:layout_marginTop="38dp"
+                android:layout_marginEnd="107dp"
+                android:background="@drawable/buttonbackground"
+                android:text="ABOUT"
+                android:textColor="#cdbe91" />
+
+            <Button
+                android:id="@+id/logoutButton"
+                android:layout_width="198dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="107dp"
+                android:layout_marginTop="38dp"
+                android:layout_marginEnd="107dp"
+                android:background="@drawable/buttonbackground"
+                android:text="LOGOUT"
+                android:textColor="#cdbe91" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="200dp"
+                android:layout_height="77dp"
+                android:layout_marginStart="120dp"
+                android:layout_marginTop="38dp"
+                android:layout_marginEnd="110dp"
+                android:text="\t\tCONTACT FOR HELP:\nLOLQUIZER@GMAIL.COM"
+                android:textColor="#cdbe91" />
+        </LinearLayout>
     </ScrollView>
-
-    <Button
-        android:id="@+id/passwordButton"
-        android:layout_width="198dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="107dp"
-        android:layout_marginTop="113dp"
-        android:layout_marginEnd="107dp"
-        android:background="@drawable/buttonbackground"
-        android:text="CHANGE PASSWORD"
-        android:textColor="#cdbe91" />
-
-    <Button
-        android:id="@+id/idButton"
-        android:layout_width="198dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordButton"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="107dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="107dp"
-        android:background="@drawable/buttonbackground"
-        android:text="CHANGE PROFILE"
-        android:textColor="#cdbe91" />
-
-    <Button
-        android:id="@+id/aboutButton"
-        android:layout_width="198dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/idButton"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="107dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="107dp"
-        android:background="@drawable/buttonbackground"
-        android:text="ABOUT"
-        android:textColor="#cdbe91" />
-
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="198dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/aboutButton"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="107dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="107dp"
-        android:background="@drawable/buttonbackground"
-        android:text="LOGOUT"
-        android:textColor="#cdbe91" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="200dp"
-        android:layout_height="77dp"
-        android:layout_below="@+id/logoutButton"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="110dp"
-        android:text="\t\tCONTACT FOR HELP:\nLOLQUIZER@GMAIL.COM"
-        android:textColor="#cdbe91" />
 
 </RelativeLayout>
