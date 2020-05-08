@@ -5,13 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-
     tools:context=".activity_screen_slide">
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="678dp" />
+        android:layout_height="match_parent" />
 
     <LinearLayout
         android:id="@+id/dotsLayout"
