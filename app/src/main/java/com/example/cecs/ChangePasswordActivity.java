@@ -59,6 +59,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     setResult(Activity.RESULT_OK, resultIntent);
                     Toast.makeText(ChangePasswordActivity.this, "Password Updated", Toast.LENGTH_SHORT).show();
                     Log.e(TAG, "New password gotten: " + user.password);
+                    finish();
                 }
 
 
