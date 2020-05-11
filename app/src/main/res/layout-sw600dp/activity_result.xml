@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:padding="16dp"
+    tools:context=".MainMenuActivity">
+
+    <ImageView
+        android:id="@+id/resultRank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/resultScore"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/challenger"/>
+
+    <TextView
+        android:id="@+id/resultScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:text="x/y\nCorrect"
+        android:textAlignment="center"
+        android:textColor="#cdbe91"
+        android:textSize="50sp" />
+
+    <TextView
+        android:id="@+id/resultTierTV"
+        android:text="Platinum Tier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#cdbe91"
+        android:textSize="30sp"
+        android:layout_below="@id/resultRank"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:layout_marginTop="60dp"/>
+
+    <Button
+        android:id="@+id/exitBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonbackground"
+        android:text="Exit"
+        android:textColor="#cdbe91"
+        android:layout_below="@id/resultTierTV"
+        android:layout_alignStart="@id/resultTierTV"
+        android:layout_alignEnd="@id/resultTierTV"
+        android:textSize="30sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"/>
+
+</RelativeLayout>
