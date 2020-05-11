@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+
+    android:padding="16dp"
+    tools:context=".SettingsActivity">
+
+    <TextView
+        android:id="@+id/settingTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Setting"
+        android:textAlignment="center"
+        android:textColor="#cdbe91"
+        android:textSize="50sp" />
+
+    <Button
+        android:id="@+id/changePasswordButton"
+        android:layout_width="198dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/settingTV"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="107dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="107dp"
+        android:background="@drawable/buttonbackground"
+        android:text="CHANGE PASSWORD"
+        android:textColor="#cdbe91"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/aboutButton"
+        android:layout_width="198dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/changePasswordButton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="107dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="107dp"
+        android:background="@drawable/buttonbackground"
+        android:text="ABOUT"
+        android:textColor="#cdbe91"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/helpButton"
+        android:layout_width="198dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aboutButton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="107dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="107dp"
+        android:background="@drawable/buttonbackground"
+        android:text="HELP"
+        android:textColor="#cdbe91"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="198dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/helpButton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="107dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="107dp"
+        android:background="@drawable/buttonbackground"
+        android:text="LOGOUT"
+        android:textColor="#cdbe91"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/accountLoggedIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logoutButton"
+        android:layout_alignLeft="@id/logoutButton"
+        android:layout_alignRight="@+id/logoutButton"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="30dp"
+        android:text="Logged in as: Username"
+        android:textAlignment="center"
+        android:textColor="#cdbe91"
+        android:textSize="20sp" />
+</RelativeLayout>
