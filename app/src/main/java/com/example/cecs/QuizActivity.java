@@ -188,7 +188,7 @@ public class QuizActivity extends AppCompatActivity {
         Intent resultIntent = new Intent(QuizActivity.this, ResultActivity.class);
         resultIntent.putExtra(EXTRA_SCORE, score);
         resultIntent.putExtra("totalQuestion", questionCountTotal);
-        setResult(RESULT_OK, resultIntent);
+        resultIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
         startActivity(resultIntent);
         finish();
     }

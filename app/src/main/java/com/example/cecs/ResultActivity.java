@@ -1,5 +1,6 @@
 package com.example.cecs;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -98,9 +99,8 @@ public class ResultActivity extends AppCompatActivity {
 
                 String tier = resultTierTV.getText().toString();
                 Log.e(TAG, "Tier String: " + tier);
-                Intent resIntent = new Intent(ResultActivity.this, activity_screen_slide.class);
-                resIntent.putExtra("resultRankTier", tier);
-                startActivity(resIntent);
+                getIntent().putExtra("resultRankTier", tier);
+                setResult(Activity.RESULT_OK, getIntent());
                 finish();
             }
         });

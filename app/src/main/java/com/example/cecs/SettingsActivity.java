@@ -3,7 +3,6 @@ package com.example.cecs;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class SettingsActivity extends Fragment {
-
     Button logoutBtn;
     Button aboutBtn;
     Button helpBtn;
@@ -24,7 +22,6 @@ public class SettingsActivity extends Fragment {
     private User user;
     private String TAG = SettingsActivity.class.getSimpleName();
     private final int CHANGE_PASSWORD_RESULTFLAG = 3;
-
 
 
     @Override
@@ -45,26 +42,24 @@ public class SettingsActivity extends Fragment {
         changePasswordBtn = getView().findViewById(R.id.changePasswordButton);
         welcomeMessage = getView().findViewById(R.id.accountLoggedIn);
 
+
         Intent accountIntent = getActivity().getIntent();
-
         user = (User) accountIntent.getSerializableExtra("userObject");
-        Log.e(TAG, "Username that is logged in: " + user.username);
         welcomeMessage.setText("Username that is logged in: " + user.username);
-
 
         changePasswordBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent changePasswordIntent = new Intent(getContext(), ChangePasswordActivity.class);
 
-                changePasswordIntent.putExtra("userObject",user);
-                startActivityForResult(changePasswordIntent,CHANGE_PASSWORD_RESULTFLAG);
+                changePasswordIntent.putExtra("userObject", user);
+                startActivityForResult(changePasswordIntent, CHANGE_PASSWORD_RESULTFLAG);
             }
         });
 
-        aboutBtn.setOnClickListener(new View.OnClickListener(){
+        aboutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 Intent aboutIntent = new Intent(getContext(), AboutActivity.class);
                 startActivity(aboutIntent);
             }
@@ -87,7 +82,8 @@ public class SettingsActivity extends Fragment {
     }
 
     /**
-     onActivityResult: get the result from an activity. Updates USER when result set from changePassword Activity
+     * onActivityResult: get the result from an activity. if requested code is 2 and if the resultCode is RESULT_OK then addUser from
+     * intent.getSerializableExtra ("userObject"). From the signupactivity. it gets the data from it and adds the user into the dictionary.
      */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
