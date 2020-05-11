@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainMenuActivity">
+
+
+    <ImageView
+        android:id="@+id/menuLogo"
+        android:layout_width="561dp"
+        android:layout_height="242dp"
+        android:layout_centerHorizontal="true"
+        android:padding="16dp"
+        android:src="@drawable/logo" />
+
+    <ImageView
+        android:id="@+id/menuTierIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/menuLogo"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/defaulttier" />
+
+    <TextView
+        android:id="@+id/menuTierTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/menuTierIV"
+        android:text="Not Ranked"
+        android:textSize="30sp"
+        android:textColor="#cdbe91"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"/>
+
+    <Button
+        android:id="@+id/menuTakeQuizBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/menuTierTV"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/buttonbackground"
+        android:text="@string/take_quiz"
+        android:textColor="#cdbe91"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"
+        android:textSize="30sp" />
+
+
+</RelativeLayout>
