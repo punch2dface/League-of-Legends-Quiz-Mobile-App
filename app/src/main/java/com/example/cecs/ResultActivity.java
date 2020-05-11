@@ -101,6 +101,7 @@ public class ResultActivity extends AppCompatActivity {
                 Intent resIntent = new Intent(ResultActivity.this, activity_screen_slide.class);
                 resIntent.putExtra("resultRankTier", tier);
                 startActivity(resIntent);
+                finish();
             }
         });
     }

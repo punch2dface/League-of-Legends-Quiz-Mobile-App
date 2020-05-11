@@ -55,6 +55,7 @@ public class activity_screen_slide extends FragmentActivity {
         nextButton = findViewById(R.id.nextButton);
         backButton = findViewById(R.id.prevButton);
 
+
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.pager);
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());

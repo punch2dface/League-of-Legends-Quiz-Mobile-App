@@ -22,6 +22,10 @@ public class HomeActivity extends AppCompatActivity {
     EditText etUsername, etPassword;
     private UserDataDictionary userDict = new UserDataDictionary();
     private HashMap<String, User> userData = userDict.getUserDict();
+    private final int SIGN_UP_RESULTFLAG = 2;
+    private final int LOGIN_STARTAPP_RESULTFLAG = 3;
+
+
 
     /**
      *  onCreate method gets UI from activity
@@ -39,10 +43,10 @@ public class HomeActivity extends AppCompatActivity {
         btnSignUp = findViewById(R.id.homeCreateAccountBtn);
         btnLogin = findViewById(R.id.homeLoginBtn);
 
+        //Admin for quick login;
+        User userAdmin = new User("admin","password", "admin@gmail.com", "8539248142");
+        addUser(userAdmin);
 
-        /**
-         * set text to blank
-         */
 
         /**
          *  btnLogin onClickListener for the Login Button.
@@ -61,22 +65,23 @@ public class HomeActivity extends AppCompatActivity {
                 String password = etPassword.getText().toString();
 
                 // validate username and password
-                if (/*validateLogin(username, password)*/ true) {
+                if (validateLogin(username, password)) {
                     // make new intent with this activity to homepage activity
                     if(userData.containsKey(username)){
+
                         Log.e(TAG, "Username gotten: " + userData.get(username).username);
                         Log.e(TAG, "Password gotten: " + userData.get(username).password);
                         Log.e(TAG, "email gotten: " + userData.get(username).email);
                         Log.e(TAG, "phonenumber gotten: " + userData.get(username).phoneNumber);
                         Log.e(TAG, "Account: " + userData.get(username));
                     }
-
+                    User user = userData.get(username);
                     Intent intent = new Intent(getApplicationContext(), activity_screen_slide.class);
                     // put username into Intent with a name "username"
-                    intent.putExtra("username", username);
+                    intent.putExtra("userObject", user);
                     //intent.putExtra("account", userData.get(username));
                     // start activity
-                    startActivity(intent);
+                    startActivityForResult(intent,LOGIN_STARTAPP_RESULTFLAG);
                 }
             }
         });
@@ -96,21 +101,42 @@ public class HomeActivity extends AppCompatActivity {
                 // put user data dictionary to "UserDictionary" in intent
                 intent.putExtra("UserDictionary", userDict);
                 // start activity intent with result with request 2.
-                startActivityForResult(intent, 2);
+                startActivityForResult(intent, SIGN_UP_RESULTFLAG);
             }
         });
     }
 
     /**
-     onActivityResult: get the result from an activity. if requested code is 2 and if the resultCode is RESULT_OK then addUser from
+     * Resets password text on resume
+     */
+    @Override
+    public void onResume(){
+        super.onResume();
+        etPassword.setText("");
+    }
+
+    /**
+     onActivityResult: get the result from an activity. if requested code is SIGN_UP_RESULTFLAG and if the resultCode is RESULT_OK then addUser from
      intent.getSerializableExtra ("userObject"). From the signupactivity. it gets the data from it and adds the user into the dictionary.
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
-        if (requestCode == 2) {
+        if (requestCode == SIGN_UP_RESULTFLAG) {
             if (resultCode == RESULT_OK) {
                 addUser((User) intent.getSerializableExtra("userObject"));
+            }
+        }
+        //UPDATES USER IN THE DATA
+        if (requestCode == LOGIN_STARTAPP_RESULTFLAG) {
+            if (resultCode == RESULT_OK) {
+                User user = ((User) intent.getSerializableExtra("userObject"));
+                //Update User in user array
+                userData.put(user.username,  user);
+                userDict.setUserDict(userData);
+                Log.e(TAG, "Username gotten: " + userData.get(user.username).username);
+                Log.e(TAG, "Password gotten: " + userData.get(user.username).password);
+
             }
         }
     }

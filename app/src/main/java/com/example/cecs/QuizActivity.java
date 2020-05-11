@@ -1,7 +1,5 @@
 package com.example.cecs;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -13,6 +11,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Collections;
 import java.util.List;
@@ -190,6 +190,7 @@ public class QuizActivity extends AppCompatActivity {
         resultIntent.putExtra("totalQuestion", questionCountTotal);
         setResult(RESULT_OK, resultIntent);
         startActivity(resultIntent);
+        finish();
     }
 
     @Override

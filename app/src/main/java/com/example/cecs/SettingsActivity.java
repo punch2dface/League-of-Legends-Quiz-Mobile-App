@@ -1,5 +1,6 @@
 package com.example.cecs;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,21 +8,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import java.util.HashMap;
-
 public class SettingsActivity extends Fragment {
+
     Button logoutBtn;
     Button aboutBtn;
     Button helpBtn;
     Button changePasswordBtn;
     Button changeProfileBtn;
-    private UserDataDictionary userDict = new UserDataDictionary();
-    private HashMap<String, User> userData = userDict.getUserDict();
+    TextView welcomeMessage;
+    private User user;
     private String TAG = SettingsActivity.class.getSimpleName();
+    private final int CHANGE_PASSWORD_RESULTFLAG = 3;
 
 
 
@@ -41,17 +43,22 @@ public class SettingsActivity extends Fragment {
         aboutBtn = getView().findViewById(R.id.aboutButton);
         helpBtn = getView().findViewById(R.id.helpButton);
         changePasswordBtn = getView().findViewById(R.id.changePasswordButton);
+        welcomeMessage = getView().findViewById(R.id.accountLoggedIn);
 
         Intent accountIntent = getActivity().getIntent();
-        String userName = accountIntent.getStringExtra("username");
-        Log.e(TAG, "Username that is logged in: " + userName);
-        Log.e(TAG, "Username Exists: " + userData.containsKey(userName));
+
+        user = (User) accountIntent.getSerializableExtra("userObject");
+        Log.e(TAG, "Username that is logged in: " + user.username);
+        welcomeMessage.setText("Username that is logged in: " + user.username);
+
 
         changePasswordBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent changePasswordIntent = new Intent(getContext(), ChangePasswordActivity.class);
-                startActivity(changePasswordIntent);
+
+                changePasswordIntent.putExtra("userObject",user);
+                startActivityForResult(changePasswordIntent,CHANGE_PASSWORD_RESULTFLAG);
             }
         });
 
@@ -74,8 +81,24 @@ public class SettingsActivity extends Fragment {
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                logoutBtn.setText("OK");
+                getActivity().finish();
             }
         });
+    }
+
+    /**
+     onActivityResult: get the result from an activity. Updates USER when result set from changePassword Activity
+     */
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+        if (requestCode == CHANGE_PASSWORD_RESULTFLAG) {
+            if (resultCode == getActivity().RESULT_OK) {
+                user = ((User) intent.getSerializableExtra("userObject"));
+                getActivity().getIntent().putExtra("userObject", user);
+                getActivity().setResult(Activity.RESULT_OK, getActivity().getIntent());
+
+            }
+        }
     }
 }
