@@ -12,6 +12,9 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+/**
+ * This fragment provides various options such as change password, about, help, and logout
+ */
 public class SettingsActivity extends Fragment {
     Button logoutBtn;
     Button aboutBtn;
@@ -47,6 +50,8 @@ public class SettingsActivity extends Fragment {
         user = (User) accountIntent.getSerializableExtra("userObject");
         welcomeMessage.setText("Username that is logged in: " + user.username);
 
+        //opens changePassword activity, sends user data to be manipulated, sets flag to retrieve any
+        //changes
         changePasswordBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,6 +93,8 @@ public class SettingsActivity extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
+
+        //Updates the user data on password change
         if (requestCode == CHANGE_PASSWORD_RESULTFLAG) {
             if (resultCode == getActivity().RESULT_OK) {
                 user = ((User) intent.getSerializableExtra("userObject"));

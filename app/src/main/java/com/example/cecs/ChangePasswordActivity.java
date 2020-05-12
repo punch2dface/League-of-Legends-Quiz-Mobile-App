@@ -13,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.regex.Pattern;
 
+/**
+ * This activity allows the user to change their password
+ */
 public class ChangePasswordActivity extends AppCompatActivity {
 
     private static final String TAG = ChangePasswordActivity.class.getSimpleName();
@@ -43,6 +46,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         Log.e(TAG, "Starting to retrieve user for password change.. ");
         Log.e(TAG, "Current password.. " + user.password);
 
+        //Reads the new password and changes password to it
         confirmChangeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

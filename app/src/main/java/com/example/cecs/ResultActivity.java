@@ -113,6 +113,7 @@ public class ResultActivity extends AppCompatActivity {
                 Log.e(TAG, "Tier String: " + tier);
                 getIntent().putExtra("resultRankTier", tier);
                 setResult(Activity.RESULT_OK, getIntent());
+                //will return to last active activity, screen slider activity
                 finish();
             }
         });

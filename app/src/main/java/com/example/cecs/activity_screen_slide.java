@@ -17,7 +17,10 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-
+/**
+ * This activity holds pages to slide through. Mainly used as the main activity to open after login.
+ * Alive until logout is initiated in settings fragment.
+ */
 public class activity_screen_slide extends FragmentActivity {
     /**
      * The number of pages (wizard steps) to show in this demo.
@@ -84,14 +87,19 @@ public class activity_screen_slide extends FragmentActivity {
     @Override
     public void onBackPressed() {
         if (mPager.getCurrentItem() == 0) {
-            // If the user is currently looking at the first step, allow the system to handle the
+            // If the user is currently looking at the first page, allow the system to handle the
             // Back button. This calls finish() on this activity and pops the back stack.
             super.onBackPressed();
         } else {
-            // Otherwise, select the previous step.
+            // Otherwise, on a different page and go back one page.
             mPager.setCurrentItem(mPager.getCurrentItem() - 1);
         }
     }
+
+    /**
+     * This adds a textview of dots to the linear layout(at the bottom) to represent the current page on view.
+     * @param position - current position of page
+     */
     public void addDotsIndicator(int position){
         dots = new TextView[NUM_PAGES];
         dotLayout.removeAllViews();;
@@ -109,17 +117,23 @@ public class activity_screen_slide extends FragmentActivity {
 
 
     ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener(){
-
+        /**
+         * abstract method that must be included and does nothing
+         */
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
         }
 
+        /**
+         * Controls what to do when on page selected
+         * @param position - current page
+         */
         @Override
         public void onPageSelected(int position) {
             addDotsIndicator(position);
             currentPage = position;
-
+            //Enable/disable and make visible/invisible buttons based on page selected
             if(currentPage == 0){
                 nextButton.setEnabled(true);
                 backButton.setEnabled(false);
@@ -140,7 +154,9 @@ public class activity_screen_slide extends FragmentActivity {
                 nextButton.setVisibility(View.VISIBLE);
             }
         }
-
+        /**
+         * abstract method that must be included and does nothing
+         */
         @Override
         public void onPageScrollStateChanged(int state) {
 
@@ -163,17 +179,21 @@ public class activity_screen_slide extends FragmentActivity {
         @Override
         public Fragment getItem(int position) {
             Fragment fr;
+            //The first page will have main menu fragment
             if(position == 0) {
                 fr =  new MainMenuActivity();
-                //Get Intent?
             }
+            //Next final page will have the settings fragment
             else {
                 fr =  new SettingsActivity();
             }
             return fr;
         }
 
-
+        /**
+         * Getter method for NUM_PAGES
+         * @return int NUM_PAGES - number of pages for viewPager
+         */
         @Override
         public int getCount() {
             return NUM_PAGES;

@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+/**
+ * This fragment is a main menu that displays the current rank and a button to start the quiz
+ */
 public class MainMenuActivity extends Fragment {
 
     private static final int RANKRESULT_RESULTFLAG = 0;
@@ -36,6 +39,8 @@ public class MainMenuActivity extends Fragment {
         tierTV = getView().findViewById(R.id.menuTierTV);
 
        buttonStartQuiz = getView().findViewById(R.id.menuTakeQuizBtn);
+
+       //Button starts the quiz
         buttonStartQuiz.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -44,23 +49,28 @@ public class MainMenuActivity extends Fragment {
         });
     }
 
+    /**
+     * This method start an intent to start the QuizActivity
+     */
     private void startQuiz() {
         Intent intent = new Intent(getActivity(), QuizActivity.class);
         startActivityForResult(intent,RANKRESULT_RESULTFLAG);
     }
 
     /**
-     onActivityResult: get the result from an activity.
+     onActivityResult: gets the result from an intent.
      */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
+
+        /**
+         * get rank result
+         */
         if (requestCode == RANKRESULT_RESULTFLAG) {
+
             if (resultCode == getActivity().RESULT_OK) {
                 Intent resIntent = intent;
-                /**
-                 * get rank result
-                 */
 
                 if(resIntent.hasExtra("resultRankTier")) {
                     tierTV.setText(resIntent.getStringExtra("resultRankTier"));
