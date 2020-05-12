@@ -8,6 +8,10 @@ import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.WindowManager;
 
+/**
+ * About Activity
+ * An activity that has the description of this app
+ */
 public class AboutActivity extends Activity {
 
     @Override

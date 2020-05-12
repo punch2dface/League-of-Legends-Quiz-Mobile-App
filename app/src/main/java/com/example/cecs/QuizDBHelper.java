@@ -11,6 +11,12 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * QuizDBHelper Class
+ * an object that creates the database table that contains the questions for the quiz
+ * this class contains functions that help manipulate the table (such as adding values into the table, update the table, etc.)
+ * it also contains a function that returns the list of the questions in the table.
+ */
 public class QuizDBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "LeagueOfLegendsQuiz.db";
@@ -18,14 +24,27 @@ public class QuizDBHelper extends SQLiteOpenHelper {
 
     private SQLiteDatabase db;
 
+    /**
+     * QuizDBHelper Constructor
+     * takes in the context
+     * uses the DATABASE_NAME and the DATABASE_VERSION
+     * @param context
+     */
     public QuizDBHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    /**
+     * onCreate method
+     * Takes in the SQLiteDatabase db
+     * Executes String that contains a query to create the table
+     * @param db
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         this.db = db;
 
+        // String that is a query that creates a table in the database
         final String SQL_CREATE_QUESTION_TABLE = "CREATE TABLE " +
                 QuestionsTable.TABLE_NAME + " ( " +
                 QuestionsTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -35,16 +54,32 @@ public class QuizDBHelper extends SQLiteOpenHelper {
                 QuestionsTable.COLUMN_OPTION3 + " TEXT, " +
                 QuestionsTable.COLUMN_ANSWER_NR + " INTEGER" + ")";
 
+        // executes the query
         db.execSQL(SQL_CREATE_QUESTION_TABLE);
+
+        // fills the database with questions, options, and answer
         fillQuestionsTable();
     }
 
+    /**
+     * onUpgrade method
+     * when there is a change in the database table (such as inserting data, removing data, etc.)
+     * this function Drops the table and calls the onCreate method again
+     * For this to work properly, we have to increment the version manually.
+     * @param db
+     * @param oldVersion
+     * @param newVersion
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + QuestionsTable.TABLE_NAME);
         onCreate(db);
     }
 
+    /**
+     * fillQuestionsTable method
+     * Create new Question object for each question we have and calls them the addQuestion function to add the question object to the table.
+     */
     private void fillQuestionsTable() {
         Question q1 = new Question("What's the continent where the League of Legends resides called?", "Valoran", "Pandaria", "Northrend", 1);
         addQuestion(q1);
@@ -108,6 +143,14 @@ public class QuizDBHelper extends SQLiteOpenHelper {
         addQuestion(q30);
     }
 
+    /**
+     * addQuestion method
+     * takes in a question object
+     * Create a new ContentValues object cv
+     * put the question, options, answer number into respective columns
+     * insert the ContentValues into the table
+     * @param question
+     */
     private void addQuestion(Question question){
         ContentValues cv = new ContentValues();
         cv.put(QuestionsTable.COLUMN_QUESTION, question.getQuestion());
@@ -118,6 +161,14 @@ public class QuizDBHelper extends SQLiteOpenHelper {
         db.insert(QuestionsTable.TABLE_NAME, null, cv);
     }
 
+    /**
+     * getAllQuestion method
+     * read the database
+     * store the executed query to get all data from the table into the Cursor
+     * iterate through the cursor and add each set of questions and its options and answers into the list
+     * Return the list.
+     * @return
+     */
     public List<Question> getAllQuestions() {
         List<Question> questionList = new ArrayList<>();
         db = getReadableDatabase();

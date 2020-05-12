@@ -11,6 +11,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * Result Activity
+ * This activity will show the number of questions right, the image and text of the rank,
+ * and a button that takes you back to the Main menu activity.
+ */
 public class ResultActivity extends AppCompatActivity {
 
     private String TAG = ResultActivity.class.getSimpleName();
@@ -24,6 +29,16 @@ public class ResultActivity extends AppCompatActivity {
     private int questionCorrectCount;
     private float quizScore;
 
+    /**
+     * onCreate method
+     * get UI components for this activity,
+     * get the score and the total number of questions that has been passed from the Quiz Activity
+     * get the percentage from the score / total questions
+     * Set the text of the resultScoreTV to the percentage
+     * if the percentage fall in a certain interval, set the ResultTierTV and the resultRankIV to the appropriate image and text.
+     * The Exit button has an onClickListener where when clicked, put the tier into the intent and finish the activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,17 +100,14 @@ public class ResultActivity extends AppCompatActivity {
         }
 
         resultExitBtn.setOnClickListener(new View.OnClickListener() {
+            /**
+             * onClick method
+             * put the tier into intent and set the result for the intent.
+             * then, finish the activity
+             * @param v
+             */
             @Override
             public void onClick(View v) {
-                /*
-                Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.id.resultRank);
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                byte[] byteArr = stream.toByteArray();
-                Intent resIntent = new Intent(ResultActivity.this, MainMenuActivity.class);
-                resIntent.putExtra("RankPicture", byteArr);
-                startActivity(resIntent);
-                */
 
                 String tier = resultTierTV.getText().toString();
                 Log.e(TAG, "Tier String: " + tier);

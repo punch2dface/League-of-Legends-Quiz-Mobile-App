@@ -1,5 +1,10 @@
 package com.example.cecs;
 
+/**
+ *  Question java class
+ *  A class where question, question options, and question answers are stored into a Question Object
+ *  This class contains a default constructor, overloaded constructor, getter and setters for each variable {question, option1, option2, option3, answerNumber}
+ */
 public class Question {
     private String question;
     private String option1;
@@ -7,8 +12,19 @@ public class Question {
     private String option3;
     private int answerNumber;
 
+    /**
+     * Default Constructor for Question Object
+     */
     public Question() {}
 
+    /**
+     * Overloaded Question Constructor that initializes the parameters as the question, option1, option2, option3, and answerNumber
+     * @param question
+     * @param option1
+     * @param option2
+     * @param option3
+     * @param answerNumber
+     */
     public Question(String question, String option1, String option2, String option3, int answerNumber) {
         this.question = question;
         this.option1 = option1;

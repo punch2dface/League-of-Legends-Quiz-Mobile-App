@@ -14,12 +14,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.HashMap;
 
 /**
- * This activity represents a login
+ * Home Activity
+ * This activity represents a login page for the app.
+ * This page will have two buttons and two EditText fields
+ * One button will be to login and the other button will be for creating account
+ * The EditText fields will be for the user to input their username and their password.
  */
 public class HomeActivity extends AppCompatActivity {
     private String TAG = HomeActivity.class.getSimpleName();
+
     Button btnLogin, btnSignUp;
     EditText etUsername, etPassword;
+
     private UserDataDictionary userDict = new UserDataDictionary();
     private HashMap<String, User> userData = userDict.getUserDict();
 
@@ -41,12 +47,16 @@ public class HomeActivity extends AppCompatActivity {
         btnSignUp = findViewById(R.id.homeCreateAccountBtn);
         btnLogin = findViewById(R.id.homeLoginBtn);
 
-
+        // Initial Saved Admin Login Credential
         User userAdmin = new User("admin","password", "admin@gmail.com", "345395418");
+
+        // Adds admin user credential into UserDataDictionary
         addUser(userAdmin);
 
         /**
          *  btnLogin onClickListener for the Login Button.
+         *  validates user input for username and password.
+         *  Store user credentials and pass it to the next activity
          */
         btnLogin.setOnClickListener(new View.OnClickListener() {
 
@@ -63,7 +73,7 @@ public class HomeActivity extends AppCompatActivity {
 
                 // validate username and password
                 if (validateLogin(username, password)) {
-                    // make new intent with this activity to homepage activity
+                    // Print User's Credential to see if it actually gets user credential from UserDataDictionary
                     if(userData.containsKey(username)){
                         Log.e(TAG, "Username gotten: " + userData.get(username).username);
                         Log.e(TAG, "Password gotten: " + userData.get(username).password);
@@ -71,19 +81,26 @@ public class HomeActivity extends AppCompatActivity {
                         Log.e(TAG, "phone number gotten: " + userData.get(username).phoneNumber);
                         Log.e(TAG, "Account: " + userData.get(username));
                     }
+
+                    // Get User Credential
                     User user = userData.get(username);
+
+                    // make new intent with this activity to homepage activity
                     Intent intent = new Intent(getApplicationContext(), activity_screen_slide.class);
-                    // put username into Intent with a name "username"
+
+                    // put User into Intent with a name "userObject"
                     intent.putExtra("userObject", user);
-                    //intent.putExtra("account", userData.get(username));
-                    // start activity
+
+                    // start activity for result 2
                     startActivityForResult(intent,UPDATE_USER_RESULTFLAG);
                 }
             }
         });
 
         /**
-         onClickListener for sign up button.
+         * onClickListener for sign up button.
+         * When sign up button is clicked, Create new Intent, Put the UserDictionary into the intent
+         * Start activity for result
          */
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             /**
@@ -94,8 +111,10 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // New intent from this activity to sign up activity
                 Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
+
                 // put user data dictionary to "UserDictionary" in intent
                 intent.putExtra("UserDictionary", userDict);
+
                 // start activity intent with result with request 2.
                 startActivityForResult(intent, UPDATE_USER_RESULTFLAG);
             }
@@ -108,6 +127,8 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
+
+        // set the password editText field to blank.
         etPassword.setText("");
     }
 

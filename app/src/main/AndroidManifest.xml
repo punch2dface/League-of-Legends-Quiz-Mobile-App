@@ -13,9 +13,6 @@
             android:name=".activity_screen_slide"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".ChangeProfileActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"  />
-        <activity
             android:name=".ChangePasswordActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
