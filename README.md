@@ -4,6 +4,10 @@ Answering several questions will give a final score and a "rank" based on your n
 
 ## App Demonstration
 
-<img src="QuizAppImages/image0.PNG" width="300"><img src="QuizAppImages/image1.PNG" width="300"><img src="QuizAppImages/image2.PNG" width="300">
-<img src="QuizAppImages/image3.PNG" width="300"><img src="QuizAppImages/image4.PNG" width="300"><img src="QuizAppImages/image5.PNG" width="300">
+<img src="QuizAppImages/image0.PNG" width="300">
+<img src="QuizAppImages/image1.PNG" width="300">
+<img src="QuizAppImages/image2.PNG" width="300">
+<img src="QuizAppImages/image3.PNG" width="300">
+<img src="QuizAppImages/image4.PNG" width="300">
+<img src="QuizAppImages/image5.PNG" width="300">
 <img src="QuizAppImages/image6.PNG" width="300">
